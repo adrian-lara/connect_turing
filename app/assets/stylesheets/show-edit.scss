@@ -1,0 +1,26 @@
+$steel-teal: #588B8B;
+$platinum: #E8EBE4;
+$terra-cotta: #ED6A5A;
+$pewter-blue: #93B7BE;
+$black-olive: #3B413C;
+
+.label {
+  margin-left: 20px;
+  margin-bottom: 1px;
+
+  font-size: 15px;
+}
+.sub-text {
+  margin-left: 35px;
+
+  font-size: 12px;
+}
+.large-text {
+  display: flex;
+  width: 50%;
+  height: 75px;
+
+  border-radius: 2px;
+
+  background-color: $platinum;
+}

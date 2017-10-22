@@ -1,19 +1,19 @@
 <h3 class="page-title"><%= @user.name %></h3>
 
 <p class="label">Turing Slack Handle:</p>
-<%= @user.slack %>
+<span class='sub-text base-text'>@<%= @user.slack %></span>
 
 <p class="label">E-mail:</p>
-<%= @user.email %>
+<span class='sub-text base-text'><%= @user.email %></span>
 
 <p class="label">Looking for:</p>
-<%= @user.looking_for %>
+<span class='sub-text base-text'><%= @user.looking_for %></span>
 
 <p class="label">About:</p>
-<span class="large-text"><%= @user.about_me %></span>
+<span class="sub-text large-text"><%= @user.about_me %></span>
 
 <p class="label">Availability Notes:</p>
-<span class="large-text"><%= @user.availability_notes %></span>
+<span class="sub-text large-text"><%= @user.availability_notes %></span>
 
 <p class="label">Time Since Last Activity:</p>
-<span class="large-text"><%= distance_of_time_in_words(@user.last_active, Time.now) %></span>
+<span class="sub-text base-text"><%= distance_of_time_in_words(@user.last_active, Time.now) %></span>
