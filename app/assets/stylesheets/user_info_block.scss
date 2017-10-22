@@ -1,0 +1,34 @@
+$steel-teal: #588B8B;
+$platinum: #E8EBE4;
+$terra-cotta: #ED6A5A;
+$beige: #FAF3DD;
+$black-olive: #3B413C;
+
+.user_info_block {
+  img {
+    margin: 10px;
+    width: 50px;
+  }
+  display: block;
+
+  width: 75%;
+  margin: 20px;
+
+  border-top-style: solid;
+  border-top-width: thin;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-top-color: transparentize($black-olive, .5);
+
+  .user_info_text {
+    font-size: 15px;
+    margin-top: 1px;
+    margin-left: 10px;
+  }
+  .edit-link {
+    margin: 5px;
+  }
+  .delete-link {
+    margin: 5px;
+  }
+}

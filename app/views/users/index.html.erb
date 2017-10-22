@@ -1,11 +1,14 @@
 <h3 class="page-title">Users</h3>
 
 <% @users.each do |user| %>
-  <p class='user_info_block'>
-    <p>Name: <%= link_to user.name, user_path(user), class: "link name-link" %></p>
-    <p>Turing Slack: <%= user.slack %></p>
-    <p>Looking For: <%= user.looking_for %></p>
-    <%= link_to "Delete", user_path(user), data: { confirm: "You are about to delete user: #{user.name}.\nThis CANNOT be undone." }, method: :delete, class: "link delete-link" %>
+  <span class='user_info_block'>
+    <img src="https://pixy.org/images/placeholder.png">
+    <p class='user_info_text'>
+      Name: <%= link_to user.name, user_path(user), class: "link name-link" %><br>
+      Turing Slack: @<%= user.slack %><br>
+      Looking For: <%= user.looking_for %><br>
+    </p>
     <%= link_to "Edit", edit_user_path(user), class: "link edit-link" %>
-  </p>
+    <%= link_to "Delete", user_path(user), data: { confirm: "You are about to delete user: #{user.name}.\nThis CANNOT be undone." }, method: :delete, class: "link delete-link" %>
+  </span>
 <% end %>

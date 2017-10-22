@@ -8,3 +8,11 @@ $black-olive: #3B413C;
   text-decoration: none;
   color: $steel-teal;
 }
+.delete-link  {
+  color: $terra-cotta;
+}
+.delete-link:hover {
+  color: $platinum;
+  background-color: transparentize($steel-teal, .10);
+  border-radius: 3px;
+}
