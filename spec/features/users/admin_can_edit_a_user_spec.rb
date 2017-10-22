@@ -8,9 +8,8 @@ describe "When an admin visits the user index, clicks edit, changes information,
     click_link "Edit", href: edit_user_path(user)
     fill_in "user[slack]", with: "BrandNewSlackHandle"
     click_on "Update User"
-    # save_and_open_page
 
-    expect(user.slack).to eq("BrandNewSlackHandle")
+    expect(User.first.slack).to eq("BrandNewSlackHandle")
     expect(current_path).to eq(user_path(user))
     within('.page-title') do
       expect(page).to have_content(user.name)
