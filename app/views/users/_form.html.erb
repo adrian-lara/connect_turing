@@ -9,7 +9,7 @@
   <%= f.text_field :email %><br>
 
   <%= f.label "Looking for:" %>
-  <%= f.select("looking_for", options_for_select([["Mentor", "Mentor"], ["Mentee", "Mentee"]]), {}, {multiple: true, size: 2}) %><br>
+  <%= f.select("looking_for", options_for_select([["Mentor & Mentee", "Mentor & Mentee"], ["Mentor", "Mentor"], ["Mentee", "Mentee"], ["Neither", "Neither"]])) %><br>
 
   <%= f.label "About:" %>
   <%= f.text_area :about_me %><br>
