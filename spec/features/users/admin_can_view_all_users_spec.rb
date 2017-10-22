@@ -6,10 +6,10 @@ describe "When an admin visits '/users'" do
     visit users_path
 
     expect(page).to have_link(users[0].name)
-    expect(page).to have_link("Delete", href: user_path(users[0]))
-    expect(page).to have_link("Edit", href: edit_user_path(users[0]))
     expect(page).to have_link(users[1].name)
+    expect(page).to have_link("Delete", href: user_path(users[0]))
     expect(page).to have_link("Delete", href: user_path(users[1]))
+    expect(page).to have_link("Edit", href: edit_user_path(users[0]))
     expect(page).to have_link("Edit", href: edit_user_path(users[1]))
     expect(page).to have_content(users[2].slack)
     expect(page).to have_content(users[3].slack)

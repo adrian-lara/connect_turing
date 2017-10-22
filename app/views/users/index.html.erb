@@ -2,8 +2,9 @@
 
 <% @users.each do |user| %>
   <p class='user_info_block'>
-    <p>Name: <%= link_to user.name, user_path(user), class: "link name_link" %></p>
+    <p>Name: <%= link_to user.name, user_path(user), class: "link name-link" %></p>
     <p>Turing Slack: <%= user.slack %></p>
     <p>Looking For: <%= user.looking_for %></p>
+    <%= link_to "Delete", user_path(user), class: "link delete-link" %>
   </p>
 <% end %>
