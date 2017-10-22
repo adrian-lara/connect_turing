@@ -4,12 +4,18 @@
     <title>ConnectTuring</title>
     <%= csrf_meta_tags %>
 
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-      <p class="flash"><%= flash.notice %></p>
+    <span class="nav-bar">
+      <%= render partial: 'layouts/nav-bar'%>
+    </span>
+
+    <p class="flash"><%= flash.notice %></p>
+    
     <%= yield %>
   </body>
 </html>
