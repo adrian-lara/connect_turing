@@ -12,7 +12,6 @@ describe "When an admin visits '/users/new', enters user information, and clicks
     fill_in "user[availability_notes]", with: "I'm pretty flexible!"
     click_on "Create User"
 
-    save_and_open_page
     expect(User.count).to eq(1)
     expect(User.last.name).to eq("Adrian Lara")
     expect(User.last.slack).to eq("adrian-lara")

@@ -1,9 +1,9 @@
-<h3>Connect Turing</h3>
+<h3 class="page-title">Connect Turing</h3>
 
-<p class='user_info_block'>
-  <% @users.each do |user| %>
+<% @users.each do |user| %>
+  <p class='user_info_block'>
     <p>Name: <%= link_to user.name, user_path(user), class: "link name_link" %></p>
     <p>Turing Slack: <%= user.slack %></p>
     <p>Looking For: <%= user.looking_for %></p>
-  <% end %>
-</p>
+  </p>
+<% end %>
