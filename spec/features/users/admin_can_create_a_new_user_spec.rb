@@ -19,5 +19,6 @@ describe "When an admin visits '/users/new', enters user information, and clicks
     expect(User.last.slack).to eq("adrian-lara")
     expect(User.last.availability_notes).to eq("I'm pretty flexible!")
     expect(current_path).to eq(users_path)
+    expect(page).to have_link("Adrian Lara")
   end
 end

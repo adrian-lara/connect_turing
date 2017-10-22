@@ -10,6 +10,8 @@ class UsersController < ApplicationController
 
   def create
     User.create(user_params)
+
+    redirect_to users_path
   end
 
   private

@@ -9,7 +9,7 @@ describe "When a visitor visits '/users'" do
     expect(page).to have_link(users[1].name)
     expect(page).to have_content(users[2].slack)
     expect(page).to have_content(users[3].slack)
-    expect(page).to have_content(users[1].looking_for)
-    expect(page).to have_content(users[2].looking_for)
+    expect(page).to have_content("Mentor")
+    expect(page).to have_content("Mentee")
   end
 end
