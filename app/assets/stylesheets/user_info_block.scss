@@ -7,7 +7,7 @@ $black-olive: #3B413C;
 .user_info_block {
   img {
     margin: 10px;
-    width: 50px;
+    width: 70px;
   }
   display: block;
 
@@ -21,7 +21,8 @@ $black-olive: #3B413C;
   border-top-color: transparentize($black-olive, .5);
 
   .user_info_text {
-    font-size: 15px;
+    color: transparentize($black-olive, .35);
+    font-size: 14px;
     margin-top: 1px;
     margin-left: 10px;
   }
