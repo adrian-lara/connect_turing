@@ -11,6 +11,6 @@ describe "When a visitor visits a user show page" do
     expect(page).to have_content(user.looking_for)
     expect(page).to have_content(user.about_me)
     expect(page).to have_content(user.availability_notes)
-    expect(page).to have_content("Some time element")
+    expect(page).to have_content("Since Last Activity: ")
   end
 end

@@ -1,21 +1,21 @@
 <%= form_for(@user) do |f| %>
-  <%= f.label "Full Name:" %>
+  <p class="label"><%= f.label "Full Name:" %></p>
   <%= f.text_field :name %><br>
 
-  <%= f.label "Turing Slack Handle:" %>
+  <p class="label"><%= f.label "Turing Slack Handle:" %></p>
   <%= f.text_field :slack %><br>
 
-  <%= f.label "E-mail:" %>
+  <p class="label"><%= f.label "E-mail:" %></p>
   <%= f.text_field :email %><br>
 
-  <%= f.label "Looking for:" %>
+  <p class="label"><%= f.label "Looking for:" %></p>
   <%= f.select("looking_for", options_for_select([["Mentor & Mentee", "Mentor & Mentee"], ["Mentor", "Mentor"], ["Mentee", "Mentee"], ["Neither", "Neither"]])) %><br>
 
-  <%= f.label "About:" %>
-  <%= f.text_area :about_me %><br>
+  <p class="label"><%= f.label "About:" %></p>
+  <p class="large-text-box"><%= f.text_area :about_me %></p>
 
-  <%= f.label "Availability Notes:" %>
-  <%= f.text_area :availability_notes %><br>
+  <p class="label"><%= f.label "Availability Notes:" %></p>
+  <p class="large-text-box"><%= f.text_area :availability_notes %></p>
 
   <%= f.submit %>
 <% end %>
