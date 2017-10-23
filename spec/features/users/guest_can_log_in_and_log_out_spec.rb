@@ -9,16 +9,14 @@ describe "When a guest visits root, clicks Log In, submits information, and clic
     click_on "Log In"
     expect(current_path).to eq(login_path)
 
-    fill_in 'user[username]', with: "username-1"
-    fill_in 'user[password]', with: "password-1"
+    fill_in 'session[username]', with: user.username
+    fill_in 'session[password]', with: user.password
     click_on "Sign In"
 
-    expect(session[:user_id]).to eq(1)
     expect(current_path).to eq(user_path(user))
 
     click_on "Log Out"
 
-    expect(session[:user_id]).to be(nil)
     expect(current_path).to eq(root_path)
   end
 end
