@@ -1,5 +1,5 @@
 <%= form_for(@user) do |f| %>
-  <p class="label">Full Name:</p>
+  <p class="label">Full Name: *</p>
   <p class='sub-text text-field'><%= f.text_field :name %></p>
 
   <p class="label">Turing Slack Handle:</p>
@@ -8,7 +8,7 @@
   <p class="label"><%= f.label "E-mail:" %></p>
   <p class='sub-text text-field'><%= f.text_field :email %></p>
 
-  <p class="label"><%= f.label "Location:" %></p>
+  <p class="label"><%= f.label "Location: *" %></p>
   <p class="dropdown"><%= f.collection_select :location_id, Location.alphabetical, :id, :description, prompt: true %></p>
 
   <p class="label"><%= f.label "Looking for:" %></p>

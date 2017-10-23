@@ -13,11 +13,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.create(user_params)
-
-    flash.notice = "Account created!"
-
-    redirect_to users_path
+    user = User.new(user_params)
+    if user.save
+      flash.notice = "Account created!"
+      redirect_to users_path
+    else
+      flash.notice = "Error creating account."
+      redirect_to new_user_path
+    end
   end
 
   def edit
