@@ -7,7 +7,7 @@ describe "When a guest visits root, clicks Log In, submits information, and clic
     visit root_path
 
     click_on "Log In"
-    expect(current_path).to eq(new_session_path)
+    expect(current_path).to eq(login_path)
 
     fill_in 'user[username]', with: "username-1"
     fill_in 'user[password]', with: "password-1"
