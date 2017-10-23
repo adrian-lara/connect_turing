@@ -1,10 +1,15 @@
 require 'rails_helper'
 
-describe "When an admin visits '/users/new', enters user information, and clicks on 'Create User'" do
+describe "When a guest visits root, clicks on Sign Up, enters user information, and clicks on 'Create User'" do
   it "a new user has been created" do
     location = create(:location)
-    visit new_user_path
+    visit root_path
+    click_on "Sign Up"
 
+    expect(current_path).to eq(new_user_path)
+    
+    fill_in "user[username]", with: "adrian-lara"
+    fill_in "user[password]", with: "pwtest"
     fill_in "user[name]", with: "Adrian Lara"
     fill_in "user[slack]", with: "adrian-lara"
     fill_in "user[email]", with: "adrianblara@gmail.com"
@@ -18,8 +23,6 @@ describe "When an admin visits '/users/new', enters user information, and clicks
     expect(User.last.name).to eq("Adrian Lara")
     expect(User.last.slack).to eq("adrian-lara")
     expect(User.last.availability_notes).to eq("I'm pretty flexible!")
-    expect(current_path).to eq(users_path)
-    expect(page).to have_link("Adrian Lara")
-    expect(page).to have_content("Mentor")
+    expect(current_path).to eq(user_path(User.last))
   end
 end
