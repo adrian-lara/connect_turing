@@ -8,6 +8,9 @@
   <p class="label"><%= f.label "E-mail:" %></p>
   <p class='sub-text text-field'><%= f.text_field :email %></p>
 
+  <p class="label"><%= f.label "Location:" %></p>
+  <p class="dropdown"><%= f.collection_select :location_id, Location.alphabetical, :id, :description, prompt: true %></p>
+
   <p class="label"><%= f.label "Looking for:" %></p>
   <p class="dropdown"><%= f.select("looking_for", options_for_select([["Mentor & Mentee", "Mentor & Mentee"], ["Mentor", "Mentor"], ["Mentee", "Mentee"], ["Neither", "Neither"]])) %></p>
 

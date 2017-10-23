@@ -49,7 +49,8 @@ class UsersController < ApplicationController
                                  :email,
                                  :looking_for,
                                  :about_me,
-                                 :availability_notes
+                                 :availability_notes,
+                                 :location_id
                                 )
   end
 

@@ -9,7 +9,7 @@ describe "When an admin visits '/users/new', enters user information, and clicks
     fill_in "user[slack]", with: "adrian-lara"
     fill_in "user[email]", with: "adrianblara@gmail.com"
     select "Mentor", from: "user[looking_for]"
-    select "Location 1", from: "location"
+    select "Location 1", from: "user[location_id]"
     fill_in "user[about_me]", with: "I like to learn and help others learn where I can."
     fill_in "user[availability_notes]", with: "I'm pretty flexible!"
     click_on "Create User"
