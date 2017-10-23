@@ -1,4 +1,10 @@
 <%= form_for(@user) do |f| %>
+  <p class="label">Username: *</p>
+  <p class='sub-text text-field'><%= f.text_field :username %></p>
+
+  <p class="label">Full Name: *</p>
+  <p class='sub-text text-field'><%= f.password_field :password %></p>
+
   <p class="label">Full Name: *</p>
   <p class='sub-text text-field'><%= f.text_field :name %></p>
 
