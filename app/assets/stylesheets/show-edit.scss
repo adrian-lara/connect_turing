@@ -17,10 +17,30 @@ $black-olive: #3B413C;
 }
 .large-text {
   display: flex;
-  width: 50%;
+  width: 450px;
   height: 75px;
 
   border-radius: 2px;
 
   background-color: $platinum;
+  overflow: scroll;
+}
+
+.sub-text {
+  margin-top: 1.5px;
+}
+.text-field {
+  input {
+    font-size: 12px;
+    width: 200px;
+  }
+}
+.dropdown {
+  margin-left: 35px;
+  margin-top: 1.5px;
+}
+.large-text-box {
+  display: flex;
+  width: 450px;
+  height: 75px;
 }

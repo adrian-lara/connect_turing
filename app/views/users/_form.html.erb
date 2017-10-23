@@ -1,21 +1,21 @@
 <%= form_for(@user) do |f| %>
-  <p class="label"><%= f.label "Full Name:" %></p>
-  <%= f.text_field :name %><br>
+  <p class="label">Full Name:</p>
+  <p class='sub-text text-field'><%= f.text_field :name %></p>
 
-  <p class="label"><%= f.label "Turing Slack Handle:" %></p>
-  <%= f.text_field :slack %><br>
+  <p class="label">Turing Slack Handle:</p>
+  <p class='sub-text text-field'>@<%= f.text_field :slack %></p>
 
   <p class="label"><%= f.label "E-mail:" %></p>
-  <%= f.text_field :email %><br>
+  <p class='sub-text text-field'><%= f.text_field :email %></p>
 
   <p class="label"><%= f.label "Looking for:" %></p>
-  <%= f.select("looking_for", options_for_select([["Mentor & Mentee", "Mentor & Mentee"], ["Mentor", "Mentor"], ["Mentee", "Mentee"], ["Neither", "Neither"]])) %><br>
+  <p class="dropdown"><%= f.select("looking_for", options_for_select([["Mentor & Mentee", "Mentor & Mentee"], ["Mentor", "Mentor"], ["Mentee", "Mentee"], ["Neither", "Neither"]])) %></p>
 
   <p class="label"><%= f.label "About:" %></p>
-  <p class="large-text-box"><%= f.text_area :about_me %></p>
+  <p class="sub-text"><%= f.text_area :about_me, class: "large-text-box" %></p>
 
   <p class="label"><%= f.label "Availability Notes:" %></p>
-  <p class="large-text-box"><%= f.text_area :availability_notes %></p>
+  <p class="sub-text"><%= f.text_area :availability_notes, class: "large-text-box" %></p>
 
   <%= f.submit %>
 <% end %>
