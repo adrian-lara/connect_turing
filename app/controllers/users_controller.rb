@@ -16,7 +16,8 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       flash.notice = "Account created!"
-      redirect_to users_path
+      session[:user_id] = user.id
+      redirect_to user_path(user)
     else
       flash.notice = "Error creating account."
       redirect_to new_user_path
@@ -47,7 +48,9 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,
+    params.require(:user).permit(:username,
+                                 :password,
+                                 :name,
                                  :slack,
                                  :email,
                                  :looking_for,
