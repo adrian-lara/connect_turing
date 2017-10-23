@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+
+class Seed
+
+  def self.locations
+    CSV.foreach('db/csv/linkedin_locations.csv', headers: true) do |row|
+      Location.create(description: row["Description"])
+    end
+  end
+
+end
+
+Seed.locations
