@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe "When an admin visits the user index, clicks edit, changes information, and clicks Update User" do
   it "the admin has edited the user and is brought to the user's show page" do
-    user = create(:user)
+    location = create(:location)
+    user = create(:user, location: location)
 
     visit users_path
     click_link "Edit", href: edit_user_path(user)
