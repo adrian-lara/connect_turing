@@ -13,7 +13,7 @@ describe "When an admin visits '/users'" do
     expect(page).to have_link("Edit", href: edit_user_path(users[1]))
     expect(page).to have_content(users[2].slack)
     expect(page).to have_content(users[3].slack)
-    expect(page).to have_content("Mentor")
-    expect(page).to have_content("Mentee")
+    expect(page).to have_content(users[2].looking_for)
+    expect(page).to have_content(users[3].looking_for)
   end
 end
