@@ -1,5 +1,15 @@
-<span> <%= link_to "Connect Turing", "/", class: "link site-title" %></span>
+<% if current_user.nil? %>
+  <span> <%= link_to "Connect Turing", "/", class: "link site-title" %></span>
+  
+  <%= link_to "Log In", login_path, class: "link nav-link" %>
+  <%= link_to "Sign Up", new_user_path, class: "link nav-link" %>
+<% end %>
 
-<%= link_to "Log In", login_path, class: "link nav-link" %>
-<%= link_to "Sign Up", new_user_path, class: "link nav-link" %>
-<%= link_to "Log Out", logout_path, method: :delete, class: "link nav-link" %>
+<% unless current_user.nil? %>
+  <span> <%= link_to "Connect Turing", "/", class: "link site-title" %></span>
+  <%= link_to "Log Out", logout_path, method: :delete, class: "link nav-link" %>
+<% end %>
+
+<% if current_user.admin? %>
+<span> <%= link_to "Connect Turing", admin_users_path, class: "link site-title" %></span>
+<% end %>
