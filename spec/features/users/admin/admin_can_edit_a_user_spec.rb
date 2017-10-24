@@ -41,7 +41,7 @@ describe "When an admin visits the user index, clicks edit, changes information,
     expect(User.first.about_me).to eq("I like to learn and help others learn where I can.")
     expect(User.first.availability_notes).to eq("I'm pretty flexible!")
 
-    expect(current_path).to eq(admin_user_path(user))
+    expect(current_path).to eq(user_path(user))
     expect(page).not_to have_content(user.name)
   end
 end
