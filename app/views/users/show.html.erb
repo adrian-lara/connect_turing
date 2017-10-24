@@ -1,4 +1,4 @@
-<h3 class="page-title"><%= @user.name %></h3>
+<h3 class="page-title">User - <%= @user.username %></h3>
 
 <p class="label">Full Name:</p>
 <span class='sub-text base-text'><%= @user.name %></span>
@@ -8,6 +8,9 @@
 
 <p class="label">E-mail:</p>
 <span class='sub-text base-text'><%= @user.email %></span>
+
+<p class="label">Location:</p>
+<span class='sub-text base-text'><%= @user.location.description %></span>
 
 <p class="label">Looking for:</p>
 <span class='sub-text base-text'><%= @user.looking_for %></span>

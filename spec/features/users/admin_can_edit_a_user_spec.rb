@@ -12,8 +12,6 @@ describe "When an admin visits the user index, clicks edit, changes information,
 
     expect(User.first.slack).to eq("BrandNewSlackHandle")
     expect(current_path).to eq(user_path(user))
-    within('.page-title') do
-      expect(page).to have_content(user.name)
-    end
+    expect(page).to have_content(user.name)
   end
 end
