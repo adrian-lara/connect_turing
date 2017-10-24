@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :mentor_list, foreign_key: :mentee_id, class_name: "MentorMentee"
   has_many :mentors, through: :mentor_list, source: :mentor
 
+  enum role: ["default", "admin"]
+
   def last_active
     return updated_at if last_login.nil?
     last_login
