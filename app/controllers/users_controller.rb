@@ -54,6 +54,7 @@ class UsersController < ApplicationController
                                  :slack,
                                  :email,
                                  :looking_for,
+                                 :gender_pronoun,
                                  :about_me,
                                  :availability_notes,
                                  :location_id
