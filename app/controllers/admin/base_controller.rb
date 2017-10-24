@@ -1,11 +1,11 @@
 class Admin::BaseController < ApplicationController
 
-  before_action :current_admin
+  before_action :admin_check
 
   private
 
-  def current_admin
-    render_404 unless current_user.admin?    
+  def admin_check
+    render_404 unless current_admin?
   end
 
 end

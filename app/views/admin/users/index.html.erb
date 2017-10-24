@@ -8,7 +8,7 @@
       Turing Slack: @<%= user.slack %><br>
       Looking For: <%= user.looking_for %><br>
     </p>
-    <%= link_to "Edit", edit_user_path(user), class: "link edit-link" %>
+    <%= link_to "Edit", edit_admin_user_path(user), class: "link edit-link" %>
     <%= link_to "Delete", user_path(user), data: { confirm: "You are about to delete user: #{user.name}.\nThis CANNOT be undone." }, method: :delete, class: "link delete-link" %>
   </span>
 <% end %>

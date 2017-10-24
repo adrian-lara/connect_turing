@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "When an admin visits '/users'" do
+describe "When an admin visits '/admin/users'" do
   it "a list of users and several details is shown on the page, as well as edit and delete buttons" do
     location = create(:location)
     users = create_list(:user, 4, location: location)
@@ -27,8 +27,8 @@ describe "When an admin visits '/users'" do
   end
 end
 
-describe "When an admin visits '/users'" do
-  it "a list of users and several details is shown on the page, as well as edit and delete buttons" do
+describe "When a default user visits '/admin/users'" do
+  it "they are shown a '404 page not found' page" do
     location = create(:location)
     users = create_list(:user, 4, location: location)
     default_user = User.create(username: 'admin',
@@ -37,6 +37,17 @@ describe "When an admin visits '/users'" do
                        )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(default_user)
+
+    visit admin_users_path
+
+    expect(status_code).to eq(404)
+  end
+end
+
+describe "When a guest visits '/admin/users'" do
+  it "they are shown a '404 page not found' page" do
+    location = create(:location)
+    users = create_list(:user, 4, location: location)
 
     visit admin_users_path
 
