@@ -15,6 +15,7 @@ describe "When a guest visits root, clicks on Sign Up, enters user information, 
     fill_in "user[email]", with: "adrianblara@gmail.com"
     select "Mentor", from: "user[looking_for]"
     select location.description, from: "user[location_id]"
+    fill_in "user[gender_pronoun]", with: "He/Him"
     fill_in "user[about_me]", with: "I like to learn and help others learn where I can."
     fill_in "user[availability_notes]", with: "I'm pretty flexible!"
     click_on "Create User"

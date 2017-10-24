@@ -20,6 +20,9 @@
   <p class="label"><%= f.label "Looking for:" %></p>
   <p class="dropdown"><%= f.select("looking_for", options_for_select([["Mentor & Mentee", "Mentor & Mentee"], ["Mentor", "Mentor"], ["Mentee", "Mentee"], ["Neither", "Neither"]])) %></p>
 
+  <p class="label">Gender Pronoun:</p>
+  <p class='sub-text text-field'>@<%= f.text_field :gender_pronoun %></p>
+
   <p class="label"><%= f.label "About:" %></p>
   <p class="sub-text"><%= f.text_area :about_me, class: "large-text-box" %></p>
 
