@@ -1,10 +1,4 @@
 <%= form_for(@user) do |f| %>
-  <p class="label">Username: *</p>
-  <p class='sub-text text-field'><%= f.text_field :username %></p>
-
-  <p class="label">Password: *</p>
-  <p class='sub-text text-field'><%= f.password_field :password %></p>
-
   <p class="label">Full Name: *</p>
   <p class='sub-text text-field'><%= f.text_field :name %></p>
 
@@ -14,20 +8,27 @@
   <p class="label"><%= f.label "E-mail:" %></p>
   <p class='sub-text text-field'><%= f.text_field :email %></p>
 
-  <p class="label"><%= f.label "Location: *" %></p>
-  <p class="dropdown"><%= f.collection_select :location_id, Location.alphabetical, :id, :description, prompt: true %></p>
-
   <p class="label"><%= f.label "Looking for:" %></p>
   <p class="dropdown"><%= f.select("looking_for", options_for_select([["Mentor & Mentee", "Mentor & Mentee"], ["Mentor", "Mentor"], ["Mentee", "Mentee"], ["Neither", "Neither"]])) %></p>
 
+  <p class="label"><%= f.label "Location: *" %></p>
+  <p class="dropdown"><%= f.collection_select :location_id, Location.alphabetical, :id, :description, prompt: true %></p>
+
   <p class="label">Gender Pronoun:</p>
-  <p class='sub-text text-field'>@<%= f.text_field :gender_pronoun %></p>
+  <p class='sub-text text-field'><%= f.text_field :gender_pronoun %></p>
 
   <p class="label"><%= f.label "About:" %></p>
   <p class="sub-text"><%= f.text_area :about_me, class: "large-text-box" %></p>
 
   <p class="label"><%= f.label "Availability Notes:" %></p>
   <p class="sub-text"><%= f.text_area :availability_notes, class: "large-text-box" %></p>
+
+  <p class="label">Username: *</p>
+  <p class='sub-text text-field'><%= f.text_field :username %></p>
+
+  <p class="label">Password: *</p>
+  <p class='sub-text text-field'><%= f.password_field :password %></p>
+
 
   <%= f.submit %>
 <% end %>

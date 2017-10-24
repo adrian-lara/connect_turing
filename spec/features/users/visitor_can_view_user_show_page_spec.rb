@@ -6,8 +6,6 @@ describe "When a visitor visits a user show page" do
     user = create(:user, location: location)
     visit user_path(user)
 
-    save_and_open_page
-
     expect(page).to have_content(user.username)
     expect(page).to have_content(user.name)
     expect(page).to have_content(user.slack)
