@@ -1,7 +1,7 @@
 class Default::UsersController < ApplicationController
 
   def edit
-
+    @user = current_user
   end
 
 end
