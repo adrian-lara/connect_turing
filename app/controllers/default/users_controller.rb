@@ -1,7 +1,11 @@
-class Default::UsersController < ApplicationController
+class Default::UsersController < Default::BaseController
 
   def edit
-    @user = current_user
+    if current_user.id == params[:id].to_i
+      @user = current_user
+    else
+      render_404
+    end
   end
 
 end
