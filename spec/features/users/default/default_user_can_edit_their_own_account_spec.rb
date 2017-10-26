@@ -34,6 +34,7 @@ describe "When a default user clicks edit on their own show page, changes their 
     expect(User.first.gender_pronoun).to eq("They/Them")
     expect(User.first.about_me).to eq("I like to learn and help others learn where I can.")
     expect(User.first.availability_notes).to eq("I'm pretty flexible!")
+    expect(current_path).to eq(default_user_path(user))
   end
 end
 
