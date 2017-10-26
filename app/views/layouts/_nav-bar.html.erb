@@ -11,6 +11,6 @@
   <%= link_to "Log Out", logout_path, method: :delete, class: "link nav-link" %>
 <% end %>
 
-<% if current_user.admin? %>
+<% if current_admin? %>
 <span> <%= link_to "Connect Turing", admin_users_path, class: "link site-title" %></span>
 <% end %>
