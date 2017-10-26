@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_default?
-
+    current_user && current_user.default?
   end
 
   def render_404
