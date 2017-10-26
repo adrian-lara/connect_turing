@@ -14,9 +14,17 @@ describe "When a guest visits root, clicks Log In, submits information, and clic
     click_on "Sign In"
 
     expect(current_path).to eq(user_path(user))
+    expect(page).not_to have_link("Log In")
+    expect(page).not_to have_link("Sign Up")
+    expect(page).to have_link("Log Out")
+    expect(page).to have_link("Account")
 
     click_on "Log Out"
 
     expect(current_path).to eq(root_path)
+    expect(page).to have_link("Log In")
+    expect(page).to have_link("Sign Up")
+    expect(page).not_to have_link("Log Out")
+    expect(page).not_to have_link("Account")
   end
 end
