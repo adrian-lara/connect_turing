@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "When a guest visits root, clicks on Sign Up, enters user information, and clicks on 'Create User'" do
-  it "a new user has been created" do
+  it "a new user has been created and they are logged in" do
     location = create(:location)
     visit root_path
     click_on "Sign Up"
@@ -25,5 +25,7 @@ describe "When a guest visits root, clicks on Sign Up, enters user information, 
     expect(User.last.slack).to eq("adrian-lara")
     expect(User.last.availability_notes).to eq("I'm pretty flexible!")
     expect(current_path).to eq(user_path(User.last))
+    expect(page).to have_link("Account")
+    expect(page).to have_link("Log Out")
   end
 end
