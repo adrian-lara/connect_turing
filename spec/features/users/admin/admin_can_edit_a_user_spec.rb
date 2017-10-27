@@ -4,11 +4,7 @@ describe "When an admin visits the user index, clicks edit, changes information,
   it "the admin has edited the user and is brought to the user's show page" do
     location = create(:location)
     user = create(:user, location: location)
-    admin = User.create(username: 'admin',
-                        password: 'pass',
-                        name: "Person",
-                        role: 1
-                       )
+    admin = create(:user, location: location, role: 1)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
@@ -50,11 +46,7 @@ describe "When an admin visits the user show page, clicks edit, changes informat
   it "the admin has edited the user and is brought to the user's show page" do
     location = create(:location)
     user = create(:user, location: location)
-    admin = User.create(username: 'admin',
-                        password: 'pass',
-                        name: "Person",
-                        role: 1
-                       )
+    admin = create(:user, location: location, role: 1)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 

@@ -4,11 +4,7 @@ describe "When an admin visits the user index, clicks on a user's name" do
   it "the admin sees some user info as well as buttons to edit and delete the user" do
     location = create(:location)
     user = create(:user, location: location)
-    admin = User.create(username: 'admin',
-                        password: 'pass',
-                        name: "Person",
-                        role: 1
-                       )
+    admin = create(:user, location: location, role: 1)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 

@@ -4,11 +4,7 @@ describe "When an admin visits '/admin/users'" do
   it "a list of users and several details is shown on the page, as well as edit and delete buttons" do
     location = create(:location)
     users = create_list(:user, 4, location: location)
-    admin = User.create(username: 'admin',
-                        password: 'pass',
-                        name: "Person",
-                        role: 1
-                       )
+    admin = create(:user, location: location, role: 1)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
