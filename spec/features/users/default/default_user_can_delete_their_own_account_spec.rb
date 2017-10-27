@@ -19,7 +19,6 @@ describe "When a default user goes to their own show page and clicks delete" do
     expect(User.count).to eq(0)
     expect(current_path).to eq(users_path)
 
-    save_and_open_page
     expect(page).to have_link("Sign Up")
     expect(page).to have_link("Log In")
     expect(page).not_to have_link("Log Out")
