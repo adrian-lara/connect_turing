@@ -8,11 +8,27 @@ $black-olive: #3B413C;
   text-decoration: none;
   color: $steel-teal;
 }
+.show-link{
+  display: inline-block;
+  background-color: transparentize($platinum, .6);
+  width: 75px;
+  text-align: center;
+
+  border-radius: 3px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.edit-link:hover{
+  color: $platinum;
+  background-color: transparentize($steel-teal, .3);
+  border-radius: 3px;
+}
 .delete-link  {
   color: $terra-cotta;
+  margin-bottom: 50px;
 }
 .delete-link:hover {
   color: $platinum;
-  background-color: transparentize($steel-teal, .10);
+  background-color: transparentize($terra-cotta, .1);
   border-radius: 3px;
 }
