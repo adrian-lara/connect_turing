@@ -7,6 +7,7 @@ class Default::UsersController < Default::BaseController
   def edit
     if current_user.id == params[:id].to_i
       @user = current_user
+      @post_uri = default_user_path(@user)
     else
       render_404
     end
