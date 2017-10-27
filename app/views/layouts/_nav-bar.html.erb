@@ -5,7 +5,7 @@
   <%= link_to "Sign Up", new_user_path, class: "link nav-link" %>
 <% end %>
 
-<% unless current_user.nil? %>
+<% if current_default? %>
   <span> <%= link_to "Connect Turing", "/", class: "link site-title" %></span>
   <%= link_to "Account", user_path(current_user), class: "link nav-link" %>
   <%= link_to "Log Out", logout_path, method: :delete, class: "link nav-link" %>

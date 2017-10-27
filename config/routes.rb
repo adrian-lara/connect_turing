@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   namespace :default do
-    resources :users, only: [:edit, :update, :show]
+    resources :users, only: [:edit, :update, :show, :destroy]
   end
 
 end

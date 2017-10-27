@@ -16,7 +16,18 @@ class Default::UsersController < Default::BaseController
     user = User.find(params[:id])
     user.update(user_params)
 
+    flash.notice = "User information has been updated!"
+
     redirect_to user_path(user)
+  end
+
+  def destroy
+    session.clear
+    User.find(params[:id]).destroy
+
+    flash.notice = "User has been deleted."
+
+    redirect_to users_path
   end
 
   private
