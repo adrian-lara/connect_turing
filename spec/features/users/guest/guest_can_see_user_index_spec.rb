@@ -17,6 +17,17 @@ describe "When a guest visits the user index page" do
     expect(page).to have_content(users[1].slack)
     expect(page).to have_content(users[0].looking_for)
     expect(page).to have_content(users[1].looking_for)
+  end
+end
 
+
+describe "When a guest visits '/admin/users'" do
+  it "they are shown a '404 page not found' page" do
+    location = create(:location)
+    users = create_list(:user, 4, location: location)
+
+    visit admin_users_path
+
+    expect(status_code).to eq(404)
   end
 end

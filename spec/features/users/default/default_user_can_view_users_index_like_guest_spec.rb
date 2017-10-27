@@ -21,3 +21,20 @@ describe "When a default user visits the users index page" do
     expect(page).to have_content(users[1].looking_for)
   end
 end
+
+describe "When a default user visits '/admin/users'" do
+  it "they are shown a '404 page not found' page" do
+    location = create(:location)
+    users = create_list(:user, 4, location: location)
+    default_user = User.create(username: 'admin',
+                        password: 'pass',
+                        name: "Person"
+                       )
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(default_user)
+
+    visit admin_users_path
+
+    expect(status_code).to eq(404)
+  end
+end
