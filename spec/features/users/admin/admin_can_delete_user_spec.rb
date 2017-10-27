@@ -34,7 +34,7 @@ describe "When an admin visits user index page and clicks Delete" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-    visit user_path(users[0])
+    visit admin_user_path(users[0])
 
     click_link "Delete"
 
