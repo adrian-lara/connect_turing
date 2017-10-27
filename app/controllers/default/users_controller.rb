@@ -1,9 +1,5 @@
 class Default::UsersController < Default::BaseController
 
-  def show
-
-  end
-
   def edit
     if current_user.id == params[:id].to_i
       @user = current_user
