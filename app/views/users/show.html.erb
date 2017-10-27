@@ -1,36 +1,4 @@
-<h3 class="page-title">User - <%= @user.username %></h3>
-
-<p class="label">Full Name:</p>
-<span class='sub-text base-text'><%= @user.name %></span>
-
-<p class="label">Turing Slack Handle:</p>
-<span class='sub-text base-text'>@<%= @user.slack %></span>
-
-<p class="label">E-mail:</p>
-<span class='sub-text base-text'><%= @user.email %></span>
-
-<p class="label">Looking for:</p>
-<span class='sub-text base-text'><%= @user.looking_for %></span>
-
-<p class="label">Location:</p>
-<span class='sub-text base-text'><%= @user.location.description %></span>
-
-<p class="label">Gender Pronoun:</p>
-<span class='sub-text base-text'><%= @user.gender_pronoun %></span>
-
-<p class="label">About:</p>
-<span class="sub-text large-text"><%= @user.about_me %></span>
-
-<p class="label">Availability Notes:</p>
-<span class="sub-text large-text"><%= @user.availability_notes %></span>
-
-<p class="label">Time Since Last Activity:</p>
-<span class="sub-text base-text"><%= distance_of_time_in_words(@user.last_active, Time.now) %></span>
-
-<% if current_admin? %>
-  <%= link_to "Edit", edit_admin_user_path(@user), class: "link edit-link" %>
-  <%= link_to "Delete", admin_user_path(@user), data: { confirm: "You are about to delete user: #{@user.name}.\nThis CANNOT be undone." }, method: :delete, class: "link delete-link" %>
-<% end %>
+<%= render partial: 'shared/show_content' %>
 
 <% if @user == current_user %>
   <%= link_to "Edit", edit_default_user_path(@user), class: "link edit-link" %>

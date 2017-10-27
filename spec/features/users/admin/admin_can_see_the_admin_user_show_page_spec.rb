@@ -12,7 +12,7 @@ describe "When an admin visits the user index, clicks on a user's name" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-    visit users_path
+    visit admin_users_path
     click_link "#{user.name}"
 
     expect(page).to have_content(user.username)
