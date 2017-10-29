@@ -6,11 +6,11 @@ class User < ApplicationRecord
 
   belongs_to :location
 
-  has_many :mentee_list, foreign_key: :mentor_id, class_name: "MentorMentee"
-  has_many :mentees, through: :mentee_list, source: :mentee
+  has_many :mentee_associations, foreign_key: :mentor_id, class_name: "MentorMentee"
+  has_many :mentees, through: :mentee_associations, source: :mentee
 
-  has_many :mentor_list, foreign_key: :mentee_id, class_name: "MentorMentee"
-  has_many :mentors, through: :mentor_list, source: :mentor
+  has_many :mentor_associations, foreign_key: :mentee_id, class_name: "MentorMentee"
+  has_many :mentors, through: :mentor_associations, source: :mentor
 
   enum role: ["default", "admin"]
 
@@ -20,11 +20,23 @@ class User < ApplicationRecord
   end
 
   def accepted_mentors
-    mentors.accepted
+    accepted_mentor_ids = mentor_associations.where(status: "Accepted").pluck(:mentor_id)
+    mentors.where(id: accepted_mentor_ids)
   end
 
   def accepted_mentees
-    mentees.accepted
+    accepted_mentee_ids = mentee_associations.where(status: "Accepted").pluck(:mentee_id)
+    mentees.where(id: accepted_mentee_ids)
+  end
+
+  def requested_mentors
+    requested_mentor_ids = mentor_associations.where(status: "Requested").pluck(:mentor_id)
+    mentors.where(id: requested_mentor_ids)
+  end
+
+  def requested_mentees
+    requested_mentee_ids = mentee_associations.where(status: "Requested").pluck(:mentee_id)
+    mentees.where(id: requested_mentee_ids)
   end
 
 end
