@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
 
+  put '/accept', to: "default/users#accept", as: 'accept'
+
   namespace :admin do
     resources :users, only: [:index, :edit, :update, :show, :destroy]
   end

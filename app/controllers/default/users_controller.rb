@@ -27,6 +27,15 @@ class Default::UsersController < Default::BaseController
     redirect_to users_path
   end
 
+  def accept
+    association = MentorMentee.find_by(mentor: params[:mentor], mentee: params[:mentee], status: 0)
+    association.update(status: 1)
+
+    flash.notice = "You are now a mentor for #{User.find(params[:mentee]).name}!"
+
+    redirect_to user_path(params[:mentor])
+  end
+
   private
 
   def user_params
