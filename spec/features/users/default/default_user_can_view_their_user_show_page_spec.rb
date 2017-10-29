@@ -10,7 +10,7 @@ describe "When a default user" do
   end
 
   describe "visits another user's show page" do
-    it "the default user sees all of the information without an edit and delete link" do
+    it "the default user sees all of the information without an edit and delete link as well as mentor info" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@users[0])
 
       visit user_path(@users[1])
@@ -27,15 +27,19 @@ describe "When a default user" do
       expect(page).to have_content("Since Last Activity: ")
       expect(page).not_to have_link("Edit")
       expect(page).not_to have_link("Delete")
+
+      expect(page).not_to have_link(@users[1].mentees.first.name)
     end
   end
 
   describe "visits their own user show page" do
-    it "the default user sees all of their information as well as an edit and delete link" do
+    before(:each) do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@users[0])
 
       visit user_path(@users[0])
+    end
 
+    it "the default user sees all of their information as well as an edit and delete link" do
       expect(page).to have_content(@users[0].username)
       expect(page).to have_content(@users[0].name)
       expect(page).to have_content(@users[0].slack)
