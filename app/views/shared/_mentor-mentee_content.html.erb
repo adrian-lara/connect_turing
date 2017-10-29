@@ -2,7 +2,7 @@
 <% @user.requested_mentees.each do |mentee| %>
   <%= render partial: 'shared/index_content', locals: { user: mentee } %>
   <%= link_to "Accept", accept_path(mentee: mentee, mentor: @user), method: :put, class: "link show-link" %>
-  <%= link_to "Reject", reject_path(mentee: mentee, mentor: @user), method: :put, class: "link show-link" %>
+  <%= link_to "Reject", reject_path(mentee: mentee, mentor: @user), method: :put, class: "link show-link delete-link" %>
 <% end %>
 
 <h5>Your requests: (<%= @user.requested_mentors.count %>)</h5>

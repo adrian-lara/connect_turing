@@ -16,11 +16,13 @@ describe "When a default user visits their show page" do
     click_on "Accept"
 
     expect(MentorMentee.second.status).to eq("Accepted")
+    expect(current_path).to eq(user_path(@users[0]))
   end
 
   it "the default user can reject a mentor request from others" do
     click_on "Reject"
 
     expect(MentorMentee.second.status).to eq("Rejected")
+    expect(current_path).to eq(user_path(@users[0]))
   end
 end

@@ -40,6 +40,7 @@ class Default::UsersController < Default::BaseController
   association = MentorMentee.find_by(mentor: params[:mentor], mentee: params[:mentee], status: 0)
   association.update(status: 2)
 
+
   flash.notice = "You've declined to mentor #{User.find(params[:mentee]).name}."
 
   redirect_to user_path(params[:mentor])
