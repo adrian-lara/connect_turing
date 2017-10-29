@@ -3,4 +3,8 @@ class MentorMentee < ApplicationRecord
   belongs_to :mentee, { foreign_key: :mentee_id, class_name: "User"}
 
   enum status: ["Requested", "Accepted", "Rejected"]
+
+  def self.accepted
+    where(status: 1)
+  end
 end

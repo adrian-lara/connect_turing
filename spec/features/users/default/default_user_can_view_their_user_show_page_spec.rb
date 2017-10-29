@@ -4,9 +4,11 @@ describe "When a default user" do
 
   before(:each) do
     @location = create(:location)
-    @users = create_list(:user, 3, location: @location)
+    @users = create_list(:user, 5, location: @location)
     MentorMentee.create(mentor: @users[1], mentee: @users[0], status: 1)
     MentorMentee.create(mentor: @users[0], mentee: @users[2], status: 1)
+    MentorMentee.create(mentor: @users[3], mentee: @users[0], status: 0)
+    MentorMentee.create(mentor: @users[0], mentee: @users[4], status: 0)
   end
 
   describe "visits another user's show page" do
@@ -55,13 +57,21 @@ describe "When a default user" do
     end
 
     it "the default user can see accepted mentor and mentee relationships" do
+      expect(page).to have_content("Mentors (1)")
       expect(page).to have_link(@users[0].mentors.first.name)
       expect(page).to have_content(@users[0].mentors.first.slack)
       expect(page).to have_content(@users[0].mentors.first.looking_for)
 
+      expect(page).to have_content("Mentees (1)")
       expect(page).to have_link(@users[0].mentees.first.name)
       expect(page).to have_content(@users[0].mentees.first.slack)
       expect(page).to have_content(@users[0].mentees.first.looking_for)
+    end
+
+    it "the default user can see pending mentor and mentee requests" do
+      expect(page).to have_link(@users[0].mentees.second.name)
+      expect(page).to have_content(@users[0].mentees.second.slack)
+      expect(page).to have_content(@users[0].mentees.second.looking_for)
     end
   end
 

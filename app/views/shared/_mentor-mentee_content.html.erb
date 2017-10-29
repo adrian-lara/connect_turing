@@ -1,8 +1,8 @@
-<h3>Mentors</h3>
+<h3>Mentors (<%= @user.accepted_mentors.count %>)</h3>
 <% @user.mentors.each do |mentor| %>
   <%= render partial: 'shared/index_content', locals: { user: mentor } %>
 <% end %>
-<h3>Mentees</h3>
+<h3>Mentees (<%= @user.accepted_mentees.count %>)</h3>
 <% @user.mentees.each do |mentee| %>
   <%= render partial: 'shared/index_content', locals: { user: mentee } %>
 <% end %>

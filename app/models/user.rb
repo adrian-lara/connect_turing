@@ -19,4 +19,12 @@ class User < ApplicationRecord
     last_login
   end
 
+  def accepted_mentors
+    mentors.accepted
+  end
+
+  def accepted_mentees
+    mentees.accepted
+  end
+
 end
