@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#destroy"
 
   put '/accept', to: "default/users#accept", as: 'accept'
+  put '/reject', to: "default/users#reject", as: 'reject'
 
   namespace :admin do
     resources :users, only: [:index, :edit, :update, :show, :destroy]
