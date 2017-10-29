@@ -58,20 +58,28 @@ describe "When a default user" do
 
     it "the default user can see accepted mentor and mentee relationships" do
       expect(page).to have_content("Mentors (1)")
-      expect(page).to have_link(@users[0].mentors.first.name)
-      expect(page).to have_content(@users[0].mentors.first.slack)
-      expect(page).to have_content(@users[0].mentors.first.looking_for)
+      expect(page).to have_link(@users[0].accepted_mentors.first.name)
+      expect(page).to have_content(@users[0].accepted_mentors.first.slack)
+      expect(page).to have_content(@users[0].accepted_mentors.first.looking_for)
 
       expect(page).to have_content("Mentees (1)")
-      expect(page).to have_link(@users[0].mentees.first.name)
-      expect(page).to have_content(@users[0].mentees.first.slack)
-      expect(page).to have_content(@users[0].mentees.first.looking_for)
+      expect(page).to have_link(@users[0].accepted_mentees.first.name)
+      expect(page).to have_content(@users[0].accepted_mentees.first.slack)
+      expect(page).to have_content(@users[0].accepted_mentees.first.looking_for)
     end
 
-    it "the default user can see pending mentor and mentee requests" do
-      expect(page).to have_link(@users[0].mentees.second.name)
-      expect(page).to have_content(@users[0].mentees.second.slack)
-      expect(page).to have_content(@users[0].mentees.second.looking_for)
+    it "the default user can see requested mentees (received request)" do
+      expect(page).to have_content("Pending your response: (1)")
+      expect(page).to have_link(@users[0].requested_mentees.first.name)
+      expect(page).to have_content(@users[0].requested_mentees.first.slack)
+      expect(page).to have_content(@users[0].requested_mentees.first.looking_for)
+    end
+
+    it "the default user can see requested mentors (sent request)" do
+      expect(page).to have_content("Your requests: (1)")
+      expect(page).to have_link(@users[0].requested_mentors.first.name)
+      expect(page).to have_content(@users[0].requested_mentors.first.slack)
+      expect(page).to have_content(@users[0].requested_mentors.first.looking_for)
     end
   end
 

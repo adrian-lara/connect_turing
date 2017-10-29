@@ -1,8 +1,19 @@
-<h3>Mentors (<%= @user.accepted_mentors.count %>)</h3>
-<% @user.mentors.each do |mentor| %>
+<h5>Pending your response: (<%= @user.requested_mentees.count %>)</h5>
+<% @user.requested_mentees.each do |mentee| %>
+  <%= render partial: 'shared/index_content', locals: { user: mentee } %>
+<% end %>
+
+<h5>Your requests: (<%= @user.requested_mentors.count %>)</h5>
+<% @user.requested_mentors.each do |mentors| %>
+  <%= render partial: 'shared/index_content', locals: { user: mentors } %>
+<% end %>
+
+<h5>Mentors (<%= @user.accepted_mentors.count %>)</h5>
+<% @user.accepted_mentors.each do |mentor| %>
   <%= render partial: 'shared/index_content', locals: { user: mentor } %>
 <% end %>
-<h3>Mentees (<%= @user.accepted_mentees.count %>)</h3>
-<% @user.mentees.each do |mentee| %>
+
+<h5>Mentees (<%= @user.accepted_mentees.count %>)</h5>
+<% @user.accepted_mentees.each do |mentee| %>
   <%= render partial: 'shared/index_content', locals: { user: mentee } %>
 <% end %>
