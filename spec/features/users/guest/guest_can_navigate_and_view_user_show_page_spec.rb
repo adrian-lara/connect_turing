@@ -20,5 +20,6 @@ describe "When a guest visits the user index, clicks on a UserName link" do
     expect(page).to have_content("Since Last Activity: ")
     expect(page).not_to have_link("Edit")
     expect(page).not_to have_link("Delete")
+    expect(page).not_to have_link("Request Mentorship")
   end
 end
