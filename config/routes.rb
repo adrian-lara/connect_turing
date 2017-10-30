@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
 
-  put '/accept', to: "default/users#accept", as: 'accept'
-  put '/reject', to: "default/users#reject", as: 'reject'
+  put '/accept', to: "mentor_mentees/base#accept", as: 'accept'
+  put '/reject', to: "mentor_mentees/base#reject", as: 'reject'
 
-  put '/request', to: 'default/users#request_mentorship', as: 'request'
+  put '/request', to: 'mentor_mentees/base#request_mentorship', as: 'request'
 
   namespace :admin do
     resources :users, only: [:index, :edit, :update, :show, :destroy]
