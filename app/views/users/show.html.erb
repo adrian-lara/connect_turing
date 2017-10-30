@@ -6,5 +6,5 @@
 
   <%= render partial: 'shared/mentor-mentee_content' %>
 <% elsif current_user %>
- <br><%= link_to "Request Mentorship", request_path(relation: { mentor_id: @user, mentee_id: current_user}), method: :put, class: "link show-link edit-link" %>
+ <br><%= link_to "Request Mentorship", request_path(relation: { mentor_id: @user, mentee_id: current_user}), method: :put, class: "link show-link request-link" %>
 <% end %>

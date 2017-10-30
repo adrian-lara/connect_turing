@@ -32,3 +32,12 @@ $black-olive: #3B413C;
   background-color: transparentize($terra-cotta, .1);
   border-radius: 3px;
 }
+.request-link {
+  width: 175px;
+  margin-bottom: 10px;
+}
+.request-link:hover {
+  color: $platinum;
+  background-color: transparentize($steel-teal, .3);
+  border-radius: 3px;
+}
