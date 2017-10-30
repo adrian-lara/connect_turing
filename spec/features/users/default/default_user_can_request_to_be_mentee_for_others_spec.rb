@@ -11,6 +11,6 @@ describe "When a default user visits another user's show page" do
   it "the user can see the Request to be Mentor link" do
     visit user_path(@users[1])
 
-    expect(page).to have_link("Request to be Mentor")
+    expect(page).to have_link("Request Mentorship")
   end
 end

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   put '/accept', to: "default/users#accept", as: 'accept'
   put '/reject', to: "default/users#reject", as: 'reject'
 
+  put '/request', to: 'default/users#request', as: 'request'
+
   namespace :admin do
     resources :users, only: [:index, :edit, :update, :show, :destroy]
   end
