@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20171029185741) do
     t.bigint "mentee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status"
+    t.integer "status", default: 0
     t.index ["mentee_id"], name: "index_mentor_mentees_on_mentee_id"
     t.index ["mentor_id"], name: "index_mentor_mentees_on_mentor_id"
   end

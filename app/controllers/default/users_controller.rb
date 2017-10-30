@@ -46,6 +46,14 @@ class Default::UsersController < Default::BaseController
   redirect_to user_path(params[:mentor])
   end
 
+  def request_mentorship
+    MentorMentee.create(mentorship_params)
+
+    flash.notice = "You've sent a request to #{User.find(params[:relation][:mentee_id]).name} to be your mentor."
+
+    redirect_to user_path(params[:relation][:mentor_id])
+  end
+
   private
 
   def user_params
@@ -61,4 +69,7 @@ class Default::UsersController < Default::BaseController
                                  :gender_pronoun)
   end
 
+  def mentorship_params
+    params.require(:relation).permit(:mentor_id, :mentee_id)
+  end
 end
