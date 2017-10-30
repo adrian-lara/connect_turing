@@ -16,7 +16,6 @@ In terminal (within the local directory), enter the following commands:
   * installs gems listed in *Gemfile*
 
 2. 'rails db:create db:migrate db:seed'
-
   Creates and populates **development** database
   'db:seed' runs the *db/seeds.rb* file, which is set up to populate the database
 
