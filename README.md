@@ -17,8 +17,8 @@ In terminal (within the local directory), enter the following commands:
 
 2. 'rails db:create db:migrate db:seed'
 
-  * Creates and populates **development** database
-  * 'db:seed' runs the *db/seeds.rb* file, which is set up to populate the database
+  Creates and populates **development** database
+  'db:seed' runs the *db/seeds.rb* file, which is set up to populate the database
 
 3. 'rails s'
 
