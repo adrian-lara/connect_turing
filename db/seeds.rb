@@ -15,6 +15,17 @@ class Seed
     end
   end
 
+  def self.first_admin
+    User.create(name: "Adrian Lara",
+                                slack: "adrian-lara",
+                                password: "password",
+                                username: "adrian-lara",
+                                role: 1,
+                                location_id: 1
+                                )
+  end
+
 end
 
 Seed.locations
+Seed.first_admin
