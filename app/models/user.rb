@@ -7,10 +7,10 @@ class User < ApplicationRecord
   belongs_to :location
 
   has_many :mentee_associations, foreign_key: :mentor_id, class_name: "MentorMentee"
-  has_many :mentees, through: :mentee_associations, source: :mentee
+  has_many :mentees, through: :mentee_associations
 
   has_many :mentor_associations, foreign_key: :mentee_id, class_name: "MentorMentee"
-  has_many :mentors, through: :mentor_associations, source: :mentor
+  has_many :mentors, through: :mentor_associations
 
   enum role: ["default", "admin"]
 
